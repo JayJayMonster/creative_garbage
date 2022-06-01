@@ -40,7 +40,7 @@
     width: 50%;
   }
   
-  #upload-image, #accuracy, #recycle {
+  #upload-image, #accuracy, #recycle, #recycleAdvice {
     padding: 10px;
     background-color: var(--white);
     border-radius: 14px;

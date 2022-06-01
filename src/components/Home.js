@@ -4,7 +4,9 @@ import { useEffect, useState } from 'react';
 export function Home() {
   const [classifier, setClassifier] = useState(null);
   const [loadStatus, setLoadStatus] = useState(true);
-  const [selectedFile, setSelectedFile] = useState('unknown image');
+  const [selectedFile, setSelectedFile] = useState([]);
+  const [myResult, setMyResult] = useState("Unknown image");
+  const [myAdvice, setMyAdvice] = useState("No advice yet..")
 
   //variables accuracy
   const labelsArray = [
@@ -35,22 +37,57 @@ export function Home() {
       console.log('MobileNet data is Loaded!');
       featureExtractor.load('./model.json', () => {
         console.log('the garbage model is also loaded');
-        setClassifier(featureExtractor);
+        const classifier = featureExtractor.classification();
+        setClassifier(classifier);
         setLoadStatus(false);
       });
     };
   }, []);
 
-  const classifySomething = () => {
-    setSelectedFile('No longer unkown');
-    classifier.classification(selectedFile, (err, results) => {
-      console.log(results);
+  const loadImage = () => {
+    console.log("loading image to classify");
+    // get pixel data from an image url
+    let myImage = new Image();
+    myImage.crossOrigin = "anonymous";
+    myImage.src = selectedFile;
+    myImage.onload = (event) => {
+      classifySomething(myImage); // of event.target
+    };
+  };
+
+  const classifySomething = (someImage) => {
+    classifier.classify(someImage, (err, result) => {
+      if (err) console.log(err);
+      console.log(result);
+      //Update result to image prediction
+      setMyResult(
+        "Label: " + labelsArray[result[0].label] + "\n Confidence:" + result[0].confidence
+      );
+      //Update advice to image prediction
+      setMyAdvice(
+        recycleObject[labelsArray[result[0].label]]
+      );
     });
   };
 
-  // if still loading only return a message
-  if (loadStatus) return <div>LOADING IMAGENET AND GARBAGE MODEL</div>;
+  const onFileChange = (e) => {
+    const [file] = e.target.files;
+    setSelectedFile(URL.createObjectURL(file));
+  };
 
+  // if still loading only return a message
+  if (loadStatus)
+  return (
+    <div>
+      <h3>ML5 React Demo</h3>
+      <div>
+        Using the FeatureExtractor, and then loading a custom trained model to
+        detect trash in images.
+      </div>
+      <p>LOADING MOBILENET, LOADING GARBAGE MODEL</p>
+    </div>
+  );
+  
   // When the model is loaded
   return (
     <div className="Home">
@@ -64,16 +101,17 @@ export function Home() {
           type="file"
           accept="image/*;capture=camera"
           id="file"
-          onChange={e => setSelectedFile(e.target.files[0])}
+          onChange={onFileChange}
         />
+        <img src={selectedFile} alt='image'/>
       </div>
-      <div>{selectedFile}</div>
 
-      <button id="btn" onClick={classifySomething}>
+      <button id="btn" onClick={loadImage}>
         Classify
       </button>
-      <div id="accuracy">Accuracy...</div>
+      <div id="accuracy">{myResult}</div>
       <div id="recycle">What could you do with it?</div>
+      <div id="recycleAdvice">{myAdvice}</div>
     </div>
   );
 }
