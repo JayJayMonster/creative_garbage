@@ -40,7 +40,7 @@ h2 {
   padding: 10px;
 }
 
-#upload-image, #accuracy, #recycle {
+#upload-image, #accuracy, #recycle, #recycleAdvice {
   background-color: var(--white);
   width: 50%;
   border-radius: 14px;
