@@ -41,11 +41,17 @@ h2 {
 }
 
 #upload-image, #accuracy, #recycle, #recycleAdvice {
-  background-color: var(--white);
-  width: 50%;
+  background-color: var(----darkgreen);
+  width: 90%;
+  text-align: center;
+  color: #fff;
+  font-family: "Futura PT", sans-serif, ;
+  border-style: dashed;
+  border-color: #fff;
   border-radius: 14px;
   margin: 10px;
   padding: 10px;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=index.fcf714d7.css.map */

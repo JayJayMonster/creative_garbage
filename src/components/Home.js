@@ -1,6 +1,7 @@
 import * as ml5 from 'ml5';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import  logoUpload  from '../assets/uploadgarbage.png';
 
 export function Home() {
   const [classifier, setClassifier] = useState(null);
@@ -101,6 +102,7 @@ export function Home() {
 
       <div id="upload-image">
         <label>Upload your own: </label>
+        <img src={logoUpload}></img>
         <input
           type="file"
           accept="image/*;capture=camera"

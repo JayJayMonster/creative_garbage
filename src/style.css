@@ -1,5 +1,6 @@
 :root {
-    --darkgreen: #46853e;
+  /* --lightgreen: #8ac870; */
+    --darkgreen: #46853e; 
     --lightgreen: #8ac870;
     --yellow: #e7e51a;
     --white: #fff;
@@ -42,9 +43,16 @@
   
   #upload-image, #accuracy, #recycle, #recycleAdvice {
     padding: 10px;
-    background-color: var(--white);
+    background-color: var(----darkgreen);
+    border-style: dashed;
+    border-color: #fff;
     border-radius: 14px;
     margin: 10px;
-    width: 50%;
+    width: 90%;
+    text-align: center;
+    color: #fff;
+    font-family: 'Futura PT', sans-serif,;
+    font-weight: bold;
+
   }
   
