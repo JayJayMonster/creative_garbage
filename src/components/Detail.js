@@ -1,8 +1,9 @@
-export function Detail() {
+export function Detail({ title, text }) {
+  console.log('The detail page');
   return (
     <div>
-      <h1>Detail Pagina Titel</h1>
-      <p>etc...</p>
+      <h1>{title}</h1>
+      <p>{text}</p>
     </div>
   );
 }
