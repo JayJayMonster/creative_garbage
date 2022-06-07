@@ -1,14 +1,13 @@
 import * as ml5 from 'ml5';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import  logoUpload  from '../assets/uploadgarbage.png';
+import { useNavigate, Route } from 'react-router-dom';
+import logoUpload from '../assets/uploadgarbage.png';
 
 export function Home() {
   const [classifier, setClassifier] = useState(null);
   const [loadStatus, setLoadStatus] = useState(true);
   const [selectedFile, setSelectedFile] = useState([]);
   const [myResult, setMyResult] = useState('Unknown image');
-  const [myAdvice, setMyAdvice] = useState('No advice yet..');
   const [redirect, setRedirect] = useState(false);
   const navigate = useNavigate();
 
@@ -61,8 +60,12 @@ export function Home() {
 
   if (redirect) {
     console.log('directing to detail page');
-    navigate('/detail', { replace: true });
+    navigate('/detail', { label: 'Banaan yo' });
   }
+
+  const testFunction = () => {
+    navigate('detail', { state: { id: 7, label: 'banaan' } });
+  };
 
   const classifySomething = someImage => {
     classifier.classify(someImage, (err, result) => {
@@ -97,6 +100,7 @@ export function Home() {
   // When the model is loaded
   return (
     <div className="Home">
+      <button onClick={testFunction}>TEST</button>
       <h1>Creative Garbage</h1>
       <img src="" id="output" />
 
@@ -109,7 +113,7 @@ export function Home() {
           id="file"
           onChange={onFileChange}
         />
-        <img src={selectedFile} alt="image" />
+        <img src={selectedFile} alt="image" width="50%" height="50%" />
       </div>
 
       <button id="btn" onClick={loadImage}>

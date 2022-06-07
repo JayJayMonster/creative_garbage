@@ -9,10 +9,7 @@ export function App() {
       <div className="App">
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
-          <Route
-            path="/detail"
-            element={<Detail title="Banana" text="something something" />}
-          ></Route>
+          <Route path="/detail" element={<Detail label />}></Route>
         </Routes>
       </div>
     </BrowserRouter>
