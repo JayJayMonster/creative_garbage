@@ -7,7 +7,7 @@ export function Detail() {
   const [fetchDone, setFetchDone] = useState(false);
   const [fData, setFData] = useState([]);
   const { state } = useLocation();
-  const { id, label } = state;
+  const { label } = state;
 
   // todo props doorgeven en geen state
   const fetchData = () => {
@@ -46,7 +46,7 @@ export function Detail() {
   };
 
   useEffect(() => {
-    searchTag('banaan');
+    searchTag(label);
   }, [fetchDone]);
 
   // useEffect(() => {
@@ -59,7 +59,7 @@ export function Detail() {
   return (
     <div>
       <h1>Details</h1>
-      <button onClick={fetchData}>zoek　しにい</button>
+      <button onClick={fetchData}>zoek</button>
     </div>
   );
 }

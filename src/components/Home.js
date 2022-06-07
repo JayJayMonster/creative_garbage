@@ -60,12 +60,8 @@ export function Home() {
 
   if (redirect) {
     console.log('directing to detail page');
-    navigate('/detail', { label: 'Banaan yo' });
+    navigate('detail', { state: { label: 'Banaan' } });
   }
-
-  const testFunction = () => {
-    navigate('detail', { state: { id: 7, label: 'banaan' } });
-  };
 
   const classifySomething = someImage => {
     classifier.classify(someImage, (err, result) => {
@@ -100,7 +96,6 @@ export function Home() {
   // When the model is loaded
   return (
     <div className="Home">
-      <button onClick={testFunction}>TEST</button>
       <h1>Creative Garbage</h1>
       <img src="" id="output" />
 
@@ -119,9 +114,6 @@ export function Home() {
       <button id="btn" onClick={loadImage}>
         Classify
       </button>
-      {/* <div id="accuracy">{myResult}</div>
-      <div id="recycle">What could you do with it?</div>
-      <div id="recycleAdvice">{myAdvice}</div> */}
     </div>
   );
 }
