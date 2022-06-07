@@ -9,9 +9,12 @@ export function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route exact path="/" element={<Home />}></Route>
-          <Route path="/detail" element={<Detail />}></Route>
-          <Route path="/hardcoded" element={<HardcodedDetail />}></Route>
+          <Route exact path="/creative_garbage" element={<Home />}></Route>
+          <Route path="/creative_garbage/detail" element={<Detail />}></Route>
+          <Route
+            path="/creative_garbage/hardcoded"
+            element={<HardcodedDetail />}
+          ></Route>
         </Routes>
       </div>
     </BrowserRouter>
