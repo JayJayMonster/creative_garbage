@@ -68,14 +68,14 @@ export function Home() {
       if (err) console.log(err);
       console.log(result);
       //Update result to image prediction
-      setMyResult(
-        'Label: ' +
-          labelsArray[result[0].label] +
-          '\n Confidence:' +
-          result[0].confidence
-      );
+      // setMyResult(
+      //   'Label: ' +
+      //     labelsArray[result[0].label] +
+      //     '\n Confidence:' +
+      //     result[0].confidence
+      // );
       //Update advice to image prediction
-      setMyAdvice(recycleObject[labelsArray[result[0].label]]);
+      //setMyAdvice(recycleObject[labelsArray[result[0].label]]);
       setRedirect(true);
     });
   };
