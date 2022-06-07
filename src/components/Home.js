@@ -60,7 +60,7 @@ export function Home() {
 
   if (redirect) {
     console.log('directing to detail page');
-    navigate('detail', { state: { label: 'Banaan' } });
+    navigate('hardcoded', { state: { label: 'Banaan' } });
   }
 
   const classifySomething = someImage => {
