@@ -18,11 +18,8 @@ export function Detail() {
       .then(res => res.json())
       .then(data => {
         console.log('klaar met laden json');
-        //console.log(data);
+        console.log(data);
         setData(data);
-      })
-      .then(() => {
-        searchTag(label);
       })
       .catch(err => console.log(err));
   };
@@ -31,23 +28,30 @@ export function Detail() {
     console.log('searching for ' + query);
     let fdata = data.filter(advice => {
       //console.log(advice);
-      console.log(advice.trashtag);
+      // console.log(advice.trashtag);
       for (let tag of advice.trashtag) {
-        console.log(tag);
-        if (tag === query) {
+        // console.log(tag.tag);
+        if (tag.tag === query) {
+          // console.log(tag.tag);
           console.log('found some advice');
-          return advice;
+          return advice
         }
       }
     });
     console.log('finished searching...');
     setFData(fdata);
-    //console.log(fData);
+    console.log(fdata)
+    console.log(fdata[0]);
+    setFetchDone(true)
   };
 
-  useEffect(() => {
-    searchTag('banaan');
-  }, [fetchDone]);
+  useEffect(() => { fetchData() }, [])
+  useEffect(() => { searchTag(label) }, [data])
+  
+
+  // useEffect(() => {
+  //   searchTag('banaan');
+  // }, [fetchDone]);
 
   // useEffect(() => {
   //   //console.log(id, label);
@@ -56,10 +60,19 @@ export function Detail() {
 
   //Map items
   // return <ul>{searchTag(label)}</ul>;
+
+  if (!fetchDone)
+    return (
+      <div>
+        <h1>Loading Data</h1>
+        <button onClick={fetchData}>zoek　しにい</button>
+      </div>
+    );
+
   return (
     <div>
       <h1>Details</h1>
-      <button onClick={fetchData}>zoek　しにい</button>
+      <h2>{fData[0].title}</h2>
     </div>
   );
 }

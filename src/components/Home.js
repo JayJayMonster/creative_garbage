@@ -60,12 +60,8 @@ export function Home() {
 
   if (redirect) {
     console.log('directing to detail page');
-    navigate('/detail', { label: 'Banaan yo' });
+    navigate('/detail', { state: { id: 7, label: "banaan" } });
   }
-
-  const testFunction = () => {
-    navigate('detail', { state: { id: 7, label: 'banaan' } });
-  };
 
   const classifySomething = someImage => {
     classifier.classify(someImage, (err, result) => {
@@ -79,7 +75,7 @@ export function Home() {
           result[0].confidence
       );
       //Update advice to image prediction
-      setMyAdvice(recycleObject[labelsArray[result[0].label]]);
+      // setMyAdvice(recycleObject[labelsArray[result[0].label]]);
       setRedirect(true);
     });
   };
@@ -100,7 +96,6 @@ export function Home() {
   // When the model is loaded
   return (
     <div className="Home">
-      <button onClick={testFunction}>TEST</button>
       <h1>Creative Garbage</h1>
       <img src="" id="output" />
 
