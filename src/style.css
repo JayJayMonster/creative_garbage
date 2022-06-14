@@ -10,6 +10,15 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    align-content: center;
+  }
+
+  p {
+    padding: 15px;
+    font-family: 'Futura PT', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    text-align: left;
   }
   
   body {
@@ -20,12 +29,18 @@
     font-family: 'Futura PT', sans-serif;
     background-color: var(--darkgreen);
   }
+
+  .EvelethSlantRegular {
+    font-family: EvelethSlantRegular;
+  }
   
   h1 {
-    font-family: 'EvelethW01-Bold', sans-serif;
-    font-size: 2em;
+    font-family: EvelethSlantRegular;
+    font-size: 22px;
     color: var(--white);
-    padding: 10px 0;
+    padding-left: 0x;
+    padding-top: 15px;
+    text-align: center;
   }
   
   h2 {
@@ -42,17 +57,85 @@
   }
   
   #upload-image, #accuracy, #recycle, #recycleAdvice {
-    padding: 10px;
+    padding: 20px;
+    margin: 20px;
+    width: 90%;
+
     background-color: var(----darkgreen);
     border-style: dashed;
     border-color: #fff;
     border-radius: 14px;
-    margin: 10px;
-    width: 90%;
+    
     text-align: center;
     color: #fff;
     font-family: 'Futura PT', sans-serif,;
     font-weight: bold;
 
+    align-content: center;
+  }
+
+  .card {
+    /* Add shadows to create the "card" effect */
+    padding: 20px;
+    margin: 20px;
+    width: 90%;
+    
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    background-color: white;
+    text-align: center;
+    color: #46853e; 
+  }
+
+  .card h1 {
+    /* Add shadows to create the "card" effect */
+    padding-left: 15px;
+    margin: 0px;
+    color: #46853e; 
+    text-align: left;
   }
   
+  /* On mouse-over, add a deeper shadow */
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  /* Add some padding inside the card container */
+  .container {
+    padding: 2px 16px;
+  }
+
+  .title {
+    font-family: 'EvelethW01-Bold', sans-serif;
+    font-size: 2em;
+    color: var(--white);
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .container2 {
+    /* border-style: dotted; */
+    /* border: red; */
+    /* background-color: red; */
+    margin: 20px;
+    padding-top: 5px;
+    width: 375px;
+    height: 10px;
+    text-align: center;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* flex-direction: row; */
+    /* border-style: dotted;
+    border: red;
+    background-color: red; */
+    margin: 0px;
+    padding: 0px;
+    width: 375px;
+    height: 70px;
+    text-align: center;
+  }

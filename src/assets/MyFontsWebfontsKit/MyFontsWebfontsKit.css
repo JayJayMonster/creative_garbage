@@ -1,0 +1,28 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 5041637, 2022-06-09T12:24:14-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: EvelethSlantRegular by Yellow Design Studio
+ * URL: https://www.myfonts.com/fonts/yellow-design/eveleth/slant-regular/
+ * Copyright: Copyright (c) 2014 by Yellow Design Studio. All rights reserved.
+ * 
+ * 
+ * 
+ * © 2022 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/4cede5");
+  
+@font-face {
+  font-family: "EvelethSlantRegular";
+  src: url('webFonts/EvelethSlantRegular/font.woff2') format('woff2'), url('webFonts/EvelethSlantRegular/font.woff') format('woff');
+}
+

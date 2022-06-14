@@ -2,11 +2,13 @@ import * as ml5 from 'ml5';
 import { useEffect, useState } from 'react';
 import { useNavigate, Route } from 'react-router-dom';
 import logoUpload from '../assets/uploadgarbage.png';
+import logoUpload2 from '../assets/creative-garbage.png';
 
 export function Home() {
   const [classifier, setClassifier] = useState(null);
   const [loadStatus, setLoadStatus] = useState(true);
-  const [selectedFile, setSelectedFile] = useState([]);
+  const [selectedFile, setSelectedFile] = useState([logoUpload]);
+  const [selectedLogo, setSelectedLogo] = useState([logoUpload2]);
   const [myResult, setMyResult] = useState('Unknown image');
   const [redirect, setRedirect] = useState(false);
   const navigate = useNavigate();
@@ -96,24 +98,27 @@ export function Home() {
   // When the model is loaded
   return (
     <div className="Home">
-      <h1>Creative Garbage</h1>
-      <img src="" id="output" />
-
+      <div className="nav">
+      <h1>Creative Garbage</h1> 
+      <img src={selectedLogo} alt="image" width="75px" height="75px" />
+      </div>
       <div id="upload-image">
         <label>Upload your own: </label>
-        <img src={logoUpload}></img>
+        <br></br>
+        <img src={selectedFile} alt="image" width="50%" height="50%" />
         <input
           type="file"
           accept="image/*;capture=camera"
           id="file"
           onChange={onFileChange}
         />
-        <img src={selectedFile} alt="image" width="50%" height="50%" />
       </div>
 
+      <div className="container2">
       <button id="btn" onClick={loadImage}>
         Classify
       </button>
+      </div>
     </div>
   );
 }
